@@ -1,21 +1,3 @@
-// //////////////////////
-// Rehearsal
-// //////////////////////
-
-// // 1. Select the button
-// const button = document.querySelector("#click-me");
-
-// // 2. Listen to a click
-// button.addEventListener("click", (event) => {
-//   // 3. Add disabled class and change the text
-//   event.currentTarget.classList.add("disabled");
-//   event.currentTarget.innerText = "Loading...";
-// });
-
-// //////////////////////
-// HTTP GET request
-// //////////////////////
-
 // 1. Select the input, the button, and the list
 const input = document.querySelector("#keyword");
 const submit = document.querySelector("#submit");
@@ -44,22 +26,3 @@ submit.addEventListener("click", (event) => {
       });
     });
 });
-
-
-// //////////////////////
-// HTTP POST request
-// //////////////////////
-
-const searchAlgoliaPlaces = (event) => {
-  fetch("https://places-dsn.algolia.net/1/places/query", {
-    method: "POST",
-    body: JSON.stringify({ query: event.currentTarget.value })
-  })
-    .then(response => response.json())
-    .then((data) => {
-      console.log(data.hits); // Look at local_names.default
-    });
-};
-
-const search = document.querySelector("#search");
-search.addEventListener("keyup", searchAlgoliaPlaces);
